@@ -10,7 +10,7 @@ if [ ! -f "config.sh" ]; then
 fi
 
 # Call API to check for new SSL version
-response=$(curl -s "http://localhost:3000/download/check?version=$version&token=$token")
+response=$(curl -s "https://dev.moph.go.th/ssl-moph-api/download/check?version=$version&token=$token")
 
 # Check if the response is true
 if [ "$response" != "true" ]; then
@@ -20,7 +20,7 @@ fi
 
 
 # Call API and get JSON response
-response=$(curl -s "http://localhost:3000/download?type=LINUX&token=$token")
+response=$(curl -s "https://dev.moph.go.th/ssl-moph-api/download?type=LINUX&token=$token")
 
 # Extract file name from the JSON response (assuming it's under "file_name")
 file_name=$(echo $response | jq -r '.file_name')
@@ -28,7 +28,7 @@ file_name=$(echo $response | jq -r '.file_name')
 mkdir ./download
 
 # Download the file with the correct file name
-curl -o "./download/$file_name.zip" "http://localhost:3000/download/$download/file_name?type=LINUX&token=$token"
+curl -o "./download/$file_name.zip" "https://dev.moph.go.th/ssl-moph-api/download/$download/file_name?type=LINUX&token=$token"
 
 
 # Check if the file was downloaded successfully
