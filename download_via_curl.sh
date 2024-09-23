@@ -18,6 +18,9 @@ curl -sS $SSL_SCRIPT_URL -o $TEMP_DIR/ssl.sh
 
 # ทำให้ไฟล์ install.sh รันได้
 chmod +x $TEMP_DIR/install.sh
+chmod +x $TEMP_DIR/uninstall.sh
+chmod +x $TEMP_DIR/config.sh
+chmod +x $TEMP_DIR/ssl.sh
 echo "
  ▗▄▄▖ ▗▄▄▖▗▖            ▗▄▄▖ ▗▄▄▖▗▄▄▖ ▗▄▄▄▖▗▄▄▖▗▄▄▄▖
 ▐▌   ▐▌   ▐▌           ▐▌   ▐▌   ▐▌ ▐▌  █  ▐▌ ▐▌ █  
