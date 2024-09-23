@@ -16,7 +16,13 @@ curl -sS $SSL_SCRIPT_URL -o $TEMP_DIR/ssl.sh
 
 # ทำให้ไฟล์ install.sh รันได้
 chmod +x $TEMP_DIR/install.sh
+echo "
+ ▗▄▄▖ ▗▄▄▖▗▖            ▗▄▄▖ ▗▄▄▖▗▄▄▖ ▗▄▄▄▖▗▄▄▖▗▄▄▄▖
+▐▌   ▐▌   ▐▌           ▐▌   ▐▌   ▐▌ ▐▌  █  ▐▌ ▐▌ █  
+ ▝▀▚▖ ▝▀▚▖▐▌            ▝▀▚▖▐▌   ▐▛▀▚▖  █  ▐▛▀▘  █  
+▗▄▄▞▘▗▄▄▞▘▐▙▄▄▖        ▗▄▄▞▘▝▚▄▄▖▐▌ ▐▌▗▄█▄▖▐▌    █  
 
+"
 echo 'ไฟล์ ถูกสร้างไว้ที่โฟวเดอร์ ssl-script'
 echo 'แก้ไข config.sh และสั่ง install.sh เพื่อติดตั้ง crontab หรือ ssl.sh เพื่อเรียกใช้งานทันที'
 
