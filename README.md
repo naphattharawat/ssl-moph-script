@@ -4,6 +4,7 @@ ssl script จะช่วยในการติดตั้งและคอ
 ## วิธีการติดตั้ง
 เข้าไปโฟวเดอร์ที่ต้องการจะติดตั้ง script และใช้คำสั่ง
 ```
+yum install unzip / apt-get install unzip
 curl -sS https://raw.githubusercontent.com/naphattharawat/ssl-moph-script/main/download_via_curl.sh | bash
 ```
 

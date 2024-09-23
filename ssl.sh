@@ -1,10 +1,12 @@
 #!/bin/bash
 
 # Load variables from config.sh
-source config.sh
+current_dir=$(dirname "$0")
+
+source $current_dir/config.sh
 
 # Check if config.sh exists
-if [ ! -f "config.sh" ]; then
+if [ ! -f "$current_dir/config.sh" ]; then
   echo "config.sh not found!"
   exit 1
 fi
@@ -26,13 +28,13 @@ response=$(curl -s "https://dev.moph.go.th/ssl-moph-api/download?type=LINUX&toke
 file_name=$(echo $response | awk -F'"file_name":"|"' '{print $2}')
 
 mkdir ./download
-
+public_ip=$(curl -s ifconfig.me)
 # Download the file with the correct file name
-curl -o "./download/$file_name.zip" "https://dev.moph.go.th/ssl-moph-api/download/$download/file_name?type=LINUX&token=$token"
+curl -o "$current_dir/download/$file_name.zip" "https://dev.moph.go.th/ssl-moph-api/download/$download/file_name?type=LINUX&token=$token&public_ip=$public_ip"
 
 
 # Check if the file was downloaded successfully
-if [ ! -f "./download/$file_name.zip" ]; then
+if [ ! -f "$current_dir/download/$file_name.zip" ]; then
   echo "Failed to download the SSL zip file."
   exit 1
 fi
@@ -40,12 +42,12 @@ fi
 # sed -i "s/^version=.*/version=$file_name/" config.sh
 # Save the new version (file name) in config.sh
 # sed -i '' "s|^version=.*|version=$file_name|" config.sh
-sed -i "s|^version=.*|version=$file_name|" config.sh
+sed -i "s|^version=.*|version=$file_name|" $current_dir/config.sh
 
 # Extract the zip file to each path specified in paths array
 for p in "${paths[@]}"; do
   mkdir -p "$p"
-  unzip -o "./download/$file_name.zip" -d "$p"
+  unzip -o "$current_dir/download/$file_name.zip" -d "$p"
 done
 
 rm -rf ./download
