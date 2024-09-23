@@ -6,6 +6,6 @@ version=1
 paths=("/etc/nginx/ssl")
 
 # คำสั่งที่ใช้ในการ restart service หลายคำสั่งคั่นด้วย space
-restart_commands=("systemctl restart nginx" "systemctl restart apache2")
+restart_commands=("systemctl restart nginx")
 
 token=
