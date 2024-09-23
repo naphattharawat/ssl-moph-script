@@ -1,5 +1,5 @@
 # Version ของ SSL ที่ต้องการเช็ค (ไม่ต้องแก้ไข)
-version=1
+version=0
 
 
 # Path ที่จะวางไฟล์ SSL เช่น /etc/nginx/ssl หลายค่าคั่นด้วย space
