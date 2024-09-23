@@ -30,7 +30,7 @@ file_name=$(echo $response | awk -F'"file_name":"|"' '{print $2}')
 mkdir $current_dir/download
 public_ip=$(curl -s ifconfig.me)
 # Download the file with the correct file name
-curl -o "$current_dir/download/$file_name.zip" "https://dev.moph.go.th/ssl-moph-api/download/$download/file_name?type=LINUX&token=$token&public_ip=$public_ip"
+curl -o "$current_dir/download/$file_name.zip" "https://dev.moph.go.th/ssl-moph-api/download/$file_name?type=LINUX&token=$token&public_ip=$public_ip"
 
 
 # Check if the file was downloaded successfully
