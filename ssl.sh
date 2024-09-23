@@ -42,14 +42,16 @@ fi
 # sed -i '' "s|^version=.*|version=$file_name|" config.sh
 sed -i "s|^version=.*|version=$file_name|" config.sh
 
-
-
-mkdir -p $path
-# Extract the zip file to the path specified in config.sh
-unzip -o ./download/$file_name.zip -d "$path"
+# Extract the zip file to each path specified in paths array
+for p in "${paths[@]}"; do
+  mkdir -p "$p"
+  unzip -o "./download/$file_name.zip" -d "$p"
+done
 
 rm -rf ./download
-# Restart the service using the command from config.sh
-$restart_command
+# Restart each service using the commands from restart_commands array
+for cmd in "${restart_commands[@]}"; do
+  $cmd
+done
 
 echo "SSL updated and service restarted."
