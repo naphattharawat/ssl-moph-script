@@ -8,6 +8,7 @@ SSL_SCRIPT_URL="https://raw.githubusercontent.com/naphattharawat/ssl-moph-script
 # สร้างไดเรกทอรีชั่วคราวสำหรับดาวน์โหลดไฟล์
 TEMP_DIR=./ssl-script
 
+mkdir -p $TEMP_DIR
 # ดาวน์โหลดไฟล์ install.sh, config.sh และ ssl.sh ไปที่ไดเรกทอรีชั่วคราว
 curl -sS $INSTALL_SCRIPT_URL -o $TEMP_DIR/install.sh
 curl -sS $CONFIG_SCRIPT_URL -o $TEMP_DIR/config.sh
