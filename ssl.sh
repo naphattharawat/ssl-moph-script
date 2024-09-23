@@ -23,7 +23,7 @@ fi
 response=$(curl -s "https://dev.moph.go.th/ssl-moph-api/download?type=LINUX&token=$token")
 
 # Extract file name from the JSON response (assuming it's under "file_name")
-file_name=$(echo $response | jq -r '.file_name')
+file_name=$(echo $response | awk -F'"file_name":"|"' '{print $2}')
 
 mkdir ./download
 
@@ -39,7 +39,8 @@ fi
 
 # sed -i "s/^version=.*/version=$file_name/" config.sh
 # Save the new version (file name) in config.sh
-sed -i '' "s|^version=.*|version=$file_name|" config.sh
+# sed -i '' "s|^version=.*|version=$file_name|" config.sh
+sed -i "s|^version=.*|version=$file_name|" config.sh
 
 
 

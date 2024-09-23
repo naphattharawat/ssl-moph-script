@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # กำหนด URL ของไฟล์ต่าง ๆ ที่อยู่ใน Git repository
-CONFIG_SCRIPT_URL="https://raw.githubusercontent.com/naphattharawat/ssl-moph-script/refs/heads/main/config.sh"
-INSTALL_SCRIPT_URL="https://raw.githubusercontent.com/naphattharawat/ssl-moph-script/refs/heads/main/install.sh"
-SSL_SCRIPT_URL="https://raw.githubusercontent.com/naphattharawat/ssl-moph-script/refs/heads/main/ssl.sh"
+CONFIG_SCRIPT_URL="https://raw.githubusercontent.com/naphattharawat/ssl-moph-script/main/config.sh"
+INSTALL_SCRIPT_URL="https://raw.githubusercontent.com/naphattharawat/ssl-moph-script/main/install.sh"
+SSL_SCRIPT_URL="https://raw.githubusercontent.com/naphattharawat/ssl-moph-script/main/ssl.sh"
 
 # สร้างไดเรกทอรีชั่วคราวสำหรับดาวน์โหลดไฟล์
 TEMP_DIR=./ssl-script
