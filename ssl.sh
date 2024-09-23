@@ -27,7 +27,7 @@ response=$(curl -s "https://dev.moph.go.th/ssl-moph-api/download?type=LINUX&toke
 # Extract file name from the JSON response (assuming it's under "file_name")
 file_name=$(echo $response | awk -F'"file_name":"|"' '{print $2}')
 
-mkdir ./download
+mkdir $current_dir/download
 public_ip=$(curl -s ifconfig.me)
 # Download the file with the correct file name
 curl -o "$current_dir/download/$file_name.zip" "https://dev.moph.go.th/ssl-moph-api/download/$download/file_name?type=LINUX&token=$token&public_ip=$public_ip"
@@ -50,7 +50,7 @@ for p in "${paths[@]}"; do
   unzip -o "$current_dir/download/$file_name.zip" -d "$p"
 done
 
-rm -rf ./download
+rm -rf $current_dir/download
 # Restart each service using the commands from restart_commands array
 for cmd in "${restart_commands[@]}"; do
   $cmd
